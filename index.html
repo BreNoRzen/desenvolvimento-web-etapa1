@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madagascar — Gestão de Animais Resgatados</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Identificação do Sistema e Navegação -->
+    <header>
+        <div>
+            <img src="assets/img/logo.png" alt="Logotipo do Sistema Madagascar" width="50" height="50">
+            <h1>Sistema Madagascar</h1>
+            <p>Plataforma de Controle e Adoção de Animais Resgatados</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#pesquisa-filtros">Pesquisar</a></li>
+                <li><a href="#cadastro">Cadastrar Animal</a></li>
+                <li><a href="#listagem">Listagem de Animais</a></li>
+                <li><a href="#detalhes">Detalhes do Item</a></li>
+                <li><a href="pages/sobre.html">Sobre o Sistema</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+
+        <!-- Seção: Pesquisa, Filtros e Ordenação -->
+        <section id="pesquisa-filtros">
+            <h2>Busca e Filtros</h2>
+            <form action="#" method="GET">
+                <fieldset>
+                    <legend>Opções de Localização de Registros</legend>
+                    
+                    <div>
+                        <label for="campo-pesquisa">Pesquisar por Nome ou Raca:</label>
+                        <input type="search" id="campo-pesquisa" name="busca" placeholder="Ex: Thor, Vira-lata...">
+                    </div>
+
+                    <div>
+                        <label for="filtro-especie">Espécie:</label>
+                        <select id="filtro-especie" name="especie">
+                            <option value="">Todas</option>
+                            <option value="Cachorro">Cachorro</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="filtro-status">Status de Adoção:</label>
+                        <select id="filtro-status" name="status">
+                            <option value="">Todos</option>
+                            <option value="Disponivel">Disponível</option>
+                            <option value="Em Tratamento">Em Tratamento</option>
+                            <option value="Adotado">Adotado</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="ordenacao">Ordenar por:</label>
+                        <select id="ordenacao" name="ordem">
+                            <option value="data_desc">Data do Resgate (Mais recentes)</option>
+                            <option value="data_asc">Data do Resgate (Mais antigos)</option>
+                            <option value="nome_asc">Nome (A-Z)</option>
+                            <option value="idade_asc">Idade (Crescente)</option>
+                        </select>
+                    </div>
+
+                    <button type="button">Aplicar Filtros</button>
+                    <button type="reset">Limpar</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Seção: Formulário de Cadastro da Entidade Principal -->
+        <section id="cadastro">
+            <h2>Cadastro de Novo Animal</h2>
+            <p>Preencha as informações do animal resgatado para inclusão no sistema.</p>
+
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Dados do Animal</legend>
+
+                    <div>
+                        <label for="nome-animal">Nome do Animal:</label>
+                        <input type="text" id="nome-animal" name="nome" placeholder="Ex: Max" required>
+                    </div>
+
+                    <div>
+                        <label for="especie-animal">Espécie:</label>
+                        <select id="especie-animal" name="especie" required>
+                            <option value="">Selecione...</option>
+                            <option value="Cachorro">Cachorro</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="raca-animal">Raça:</label>
+                        <input type="text" id="raca-animal" name="raca" placeholder="Ex: Sem Raça Definida (SRD)">
+                    </div>
+
+                    <div>
+                        <label for="idade-estimada">Idade Estimada (Anos):</label>
+                        <input type="number" id="idade-estimada" name="idade" min="0" max="30" step="0.5" placeholder="Ex: 2">
+                    </div>
+
+                    <div>
+                        <label for="data-resgate">Data do Resgate:</label>
+                        <input type="date" id="data-resgate" name="dataResgate" required>
+                    </div>
+
+                    <div>
+                        <label for="status-saude">Condição de Saúde / Tratamento:</label>
+                        <select id="status-saude" name="statusSaude">
+                            <option value="Saudável">Saudável</option>
+                            <option value="Em Tratamento">Em Tratamento</option>
+                            <option value="Necessita Cirurgia">Necessita Cirurgia</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="foto-animal">Link da Foto (URL):</label>
+                        <input type="url" id="foto-animal" name="fotoUrl" placeholder="https://exemplo.com/foto.jpg">
+                    </div>
+
+                    <div>
+                        <label for="observacoes">Histórico e Observações:</label>
+                        <textarea id="observacoes" name="observacoes" rows="4" placeholder="Descreva as condições em que o animal foi resgatado..."></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit">Cadastrar Animal</button>
+                        <button type="reset">Cancelar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Seção: Visualização dos Itens Cadastrados (Listagem Estática) -->
+        <section id="listagem">
+            <h2>Animais Cadastrados</h2>
+            <p>Lista dos animais registrados no sistema estaticamente para teste de interface.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nome</th>
+                        <th>Espécie</th>
+                        <th>Raça</th>
+                        <th>Data Resgate</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/60" alt="Foto do Thor" width="60" height="60"></td>
+                        <td><strong>Thor</strong></td>
+                        <td>Cachorro</td>
+                        <td>Vira-lata (SRD)</td>
+                        <td>12/08/2026</td>
+                        <td><mark>Disponível</mark></td>
+                        <td>
+                            <button type="button">Ver Detalhes</button>
+                            <button type="button">Editar</button>
+                            <button type="button">Excluir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/60" alt="Foto da Luna" width="60" height="60"></td>
+                        <td><strong>Luna</strong></td>
+                        <td>Gato</td>
+                        <td>Siamês</td>
+                        <td>28/08/2026</td>
+                        <td><mark>Em Tratamento</mark></td>
+                        <td>
+                            <button type="button">Ver Detalhes</button>
+                            <button type="button">Editar</button>
+                            <button type="button">Excluir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/60" alt="Foto do Bob" width="60" height="60"></td>
+                        <td><strong>Bob</strong></td>
+                        <td>Cachorro</td>
+                        <td>Labrador</td>
+                        <td>01/09/2026</td>
+                        <td><mark>Adotado</mark></td>
+                        <td>
+                            <button type="button">Ver Detalhes</button>
+                            <button type="button">Editar</button>
+                            <button type="button">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção / Painel de Detalhes de um Item Selecionado -->
+        <aside id="detalhes">
+            <h2>Detalhes do Animal Selecionado</h2>
+            <article>
+                <header>
+                    <h3>Thor (ID: #001)</h3>
+                    <p>Status: <strong>Disponível para Adoção</strong></p>
+                </header>
+                
+                <img src="https://via.placeholder.com/200x150" alt="Foto em tamanho grande do Thor" width="200">
+                
+                <ul>
+                    <li><strong>Espécie:</strong> Cachorro</li>
+                    <li><strong>Raça:</strong> Vira-lata (SRD)</li>
+                    <li><strong>Idade Estimada:</strong> 2 anos</li>
+                    <li><strong>Data do Resgate:</strong> 12/08/2026</li>
+                    <li><strong>Condição de Saúde:</strong> Vacinado, castrado e vermifugado.</li>
+                </ul>
+
+                <p><strong>Histórico:</strong> Resgatado próximo à praça central. Apresentava leve desnutrição, mas já se encontra totalmente recuperado e dócil.</p>
+                
+                <div>
+                    <button type="button">Editar Cadastro</button>
+                    <button type="button">Marcar como Adotado</button>
+                    <button type="button">Remover Registro</button>
+                </div>
+            </article>
+        </aside>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Sistema Madagascar — Todos os direitos reservados.</p>
+        <p>Desenvolvido para a disciplina de Desenvolvimento Web / Front-end.</p>
+        <ul>
+            <li><a href="#header">Voltar ao topo</a></li>
+            <li><a href="pages/sobre.html">Sobre a ONG</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
